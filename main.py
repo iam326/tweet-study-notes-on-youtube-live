@@ -21,7 +21,7 @@ def main():
 
     while True:
         live_chat_messages = youtube.get_live_chat_messages(
-            live_chat_id, next_page_token)
+            live_chat_id=live_chat_id, forMine=True, next_page_token=next_page_token)
 
         if len(live_chat_messages['messages']) == 0:
             break
