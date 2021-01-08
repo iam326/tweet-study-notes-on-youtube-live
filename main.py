@@ -23,11 +23,15 @@ def main():
         live_chat_messages = youtube.get_live_chat_messages(
             live_chat_id, next_page_token)
 
+        if len(live_chat_messages['messages']) == 0:
+            break
+
         for message in live_chat_messages['messages']:
             print(message)
 
         next_page_token = live_chat_messages['next_page_token']
-        break
+
+    print('done!')
 
 
 if __name__ == '__main__':
