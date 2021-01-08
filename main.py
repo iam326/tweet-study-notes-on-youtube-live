@@ -27,7 +27,10 @@ def main():
             break
 
         for message in live_chat_messages['messages']:
-            print(message)
+            if message.lstrip().startswith('memo:'):
+                note = ':'.join(message.split(':')[1:]).strip()
+                print(note)
+                # Tweet する
 
         next_page_token = live_chat_messages['next_page_token']
 
